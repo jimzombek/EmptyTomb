@@ -3,18 +3,57 @@
   <groupId>com.jmzombek</groupId>
   <artifactId>empty-tomb</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   
-  <parent>
-      <groupId>org.springframework.boot</groupId>
-	  <artifactId>spring-boot-starter-parent</artifactId>
-      <version>2.0.1.RELEASE</version>
-  </parent>
-  
+  <name>jmzombek Empty Tomb</name>
+  <description>Empty Tomb Web Application</description>
+    
+  <properties>
+    <springBootStarterVersion>2.0.1.RELEASE</springBootStarterVersion>
+    <springBootStarterWebVersion>2.0.1.RELEASE</springBootStarterWebVersion>
+    <springBootStarterActuator>2.0.1.RELEASE</springBootStarterActuator>
+  </properties>
+
   <dependencies>
-      <!-- adds Tomcat and Spring MVC -->
-	  <dependency>
-	      <groupId>org.springframework.boot</groupId>
-		  <artifactId>spring-boot-starter-web</artifactId>
-	  </dependency>
+ 	<!-- Adds Embedded Tomcat and Spring MVC -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>${springBootStarterVersion}</version>
+    </dependency>
+    
+    <!-- @RestController, @RequestMapping, @PathVariable. etc.-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${springBootStarterWebVersion}</version>
+     </dependency>
+    
+    <!-- Production Ready Metrics, Health and more -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <version>${springBootStarterActuator}</version>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      
+      <!-- Tells Maven to include Spring specific maven plugins for building and deploying Spring Boot applications -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>
