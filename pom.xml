@@ -15,19 +15,29 @@
   </properties>
 
   <dependencies>
- 	<!-- Adds Embedded Tomcat and Spring MVC -->
+ 	<!-- Spring MVC -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
       <version>${springBootStarterVersion}</version>
     </dependency>
     
-    <!-- @RestController, @RequestMapping, @PathVariable. etc.-->
+    <!-- Adds Embedded Tomcat -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <version>${springBootStarterWebVersion}</version>
-     </dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${springBootStarterWebVersion}</version>
+        
+        <!-- Exclude the embedded version of TOMCAT
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+          </exclusion>
+        </exclusions>
+        -->
+        
+    </dependency>
     
     <!-- Production Ready Metrics, Health and more -->
     <dependency>
