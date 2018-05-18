@@ -3,7 +3,10 @@ package com.jmzombek.web;
 import java.lang.String;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+
+import com.jmzombek.validator.QuestionValidator;
 
 @RestController
 @RequestMapping("/EmptyTomb/Question")
@@ -13,6 +16,11 @@ import org.springframework.web.bind.annotation.*;
 // components (like embedded Tomcat in the web application). 
 public class QuestionController {
   
+    @InitBinder("Question")
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(new QuestionValidator());
+    }
+    
     @RequestMapping(value = "/byId/{questionId}", method = RequestMethod.GET)
     @ResponseBody
     // Note the @ResponseBody annotation on the method – which instructs Spring to bypass the view resolver 
@@ -29,5 +37,4 @@ public class QuestionController {
     public String home() {
         return "Greetings From Spring Boot";
     }
-
 }
