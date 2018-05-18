@@ -59,7 +59,7 @@
         </configuration>
       </plugin>
       
-      <!-- Tells Maven to include Spring specific maven plugins for building and deploying Spring Boot applications -->
+      <!-- Tells Maven to include all the jars on the classpath and build a single, runnable "über-jar" -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
