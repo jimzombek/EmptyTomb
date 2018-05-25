@@ -26,6 +26,7 @@ public class QuestionController {
     // Note the @ResponseBody annotation on the method – which instructs Spring to bypass the view resolver 
     // and essentially write out the output directly to the body of the HTTP response.
 
+    // NOTE: Spring does not support @Valid on @PathVariable annotated parameters in handler methods. 
  	public String getQuestionById(@PathVariable final String questionId) {
 	    //@RequestHeader final HttpHeaders headers,
 	    //@RequestParam(value = "questionID", required = false, defaultValue = "1") final String questionID) {

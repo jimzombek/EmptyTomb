@@ -14,10 +14,10 @@ public class QuestionValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-      Question question = (Question) target;
+      final Question question = (Question) target;
 
-      if (question.getName() == null) {
-          errors.rejectValue("name", "your_error_code");
+      if (question.getId() == null) {
+          errors.rejectValue("Id not found", "404");
       }
 
       // do "complex" validation here
